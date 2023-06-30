@@ -59,3 +59,8 @@ const StudentsSeed = [
     }
 ];
 
+const seed = async () => {
+    await campuses.bulkCreate(CampusesSeed);
+    await students.bulkCreate(StudentsSeed);
+}
+seed().then(() => process.exit());
