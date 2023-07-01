@@ -4,25 +4,25 @@ const {campuses, students} = require("./db/models");
 const CampusesSeed = [
     {
         name: 'Campus 1',
-        imageUrl: 'https://example.com/image1.jpg',
+        imageUrl: 'https://i.ibb.co/9yCwGK7/images.jpg',
         address: '123 Main St, City 1',
         description: 'Description for Campus 1'
       },
       {
         name: 'Campus 2',
-        imageUrl: 'https://example.com/image2.jpg',
+        imageUrl: 'https://i.ibb.co/kyy6R3Q/istockphoto-1323420737-612x612.jpg',
         address: '456 Elm St, City 2',
         description: 'Description for Campus 2'
       },
       {
         name: 'Campus 3',
-        imageUrl: 'https://example.com/image3.jpg',
+        imageUrl: 'https://i.ibb.co/LZMdcJZ/photo-1562774053-701939374585.jpg',
         address: '789 Oak St, City 3',
         description: 'Description for Campus 3'
       },
       {
         name: 'Campus 4',
-        imageUrl: 'https://example.com/image4.jpg',
+        imageUrl: 'https://i.ibb.co/MpWn8c8/photo-1607237138185-eedd9c632b0b.jpg',
         address: '987 Pine St, City 4',
         description: 'Description for Campus 4'
       }
@@ -33,28 +33,28 @@ const StudentsSeed = [
       firstName: 'John',
       lastName: 'Doe',
       email: 'johndoe@example.com',
-      imageUrl: 'https://example.com/image1.jpg',
+      imageUrl: 'https://i.ibb.co/QDPq2rB/Unknown-2.jpg',
       gpa: 3.5
     },
     {
       firstName: 'Jane',
       lastName: 'Smith',
       email: 'janesmith@example.com',
-      imageUrl: 'https://example.com/image2.jpg',
+      imageUrl: 'https://i.ibb.co/kGRqs9L/Unknown-3.jpg',
       gpa: 3.9
     },
     {
       firstName: 'Alice',
       lastName: 'Johnson',
       email: 'alicejohnson@example.com',
-      imageUrl: 'https://example.com/image3.jpg',
+      imageUrl: '"https://i.ibb.co/tzxq3xX/Unknown-4.jpg',
       gpa: 3.2
     },
     {
       firstName: 'Bob',
       lastName: 'Brown',
       email: 'bobbrown@example.com',
-      imageUrl: 'https://example.com/image4.jpg',
+      imageUrl: 'https://i.ibb.co/pL9m9NF/Unknown.jpg',
       gpa: 3.7
     }
 ];
