@@ -4,6 +4,7 @@ const {campuses} = require("../db/models");
 
 //use json middleware to notiy server that im taking json middleware
 router.use(express.json());
+
 router.get("/", async(req, res, next) =>{
     try {
         const allCampuses = await campuses.findAll();
