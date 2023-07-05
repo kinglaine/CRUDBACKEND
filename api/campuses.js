@@ -24,4 +24,18 @@ router.post("/AddCampus", async(req, res, next) => {
         next(error);
     }
 });
+
+router.delete("/RemoveCampus/:campusName", async (req, res) => {
+    try {
+        const routeCampusName = req.params.campusName;
+        await campuses.destroy({
+            where: {
+                name: routeCampusName
+            }
+        })
+        res.status(202).json({message: 'Delete was successfull'});
+    } catch (error) {
+        next(error);
+    }
+})
 module.exports = router;
