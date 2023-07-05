@@ -34,6 +34,15 @@ router.delete("/RemoveCampus/:campusName", async (req, res) => {
             }
         })
         res.status(202).json({message: 'Delete was successfull'});
+    } catch(error){
+        next(error)
+    }
+})
+router.get('/CampusView/:campusName', async(req, res, next) => {
+    try {
+        const camusName = req.params.campusName;
+        const campusData = await campuses.findOne({where: {name: camusName}});
+    res.send(campusData);
     } catch (error) {
         next(error);
     }
