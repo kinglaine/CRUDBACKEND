@@ -24,4 +24,13 @@ router.post("/AddCampus", async(req, res, next) => {
         next(error);
     }
 });
+router.get('/CampusView/:campusName', async(req, res, next) => {
+    try {
+        const camusName = req.params.campusName;
+        const campusData = await campuses.findOne({where: {name: camusName}});
+    res.send(campusData);
+    } catch (error) {
+        next(error);
+    }
+})
 module.exports = router;
