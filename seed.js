@@ -1,5 +1,5 @@
 const db = require("./db");
-const {campuses, students} = require("./db/models");
+const {Campuses, Students} = require("./db/models");
 
 const CampusesSeed = [
     {
@@ -29,28 +29,28 @@ const CampusesSeed = [
 ];
 
 const StudentsSeed = [
-    {
+    { campusId: 1,
       firstName: 'John',
       lastName: 'Doe',
       email: 'johndoe@example.com',
       imageUrl: 'https://i.ibb.co/QDPq2rB/Unknown-2.jpg',
       gpa: 3.5
     },
-    {
+    { campusId: 1,
       firstName: 'Jane',
       lastName: 'Smith',
       email: 'janesmith@example.com',
       imageUrl: 'https://i.ibb.co/kGRqs9L/Unknown-3.jpg',
       gpa: 3.9
     },
-    {
+    { campusId: 1,
       firstName: 'Alice',
       lastName: 'Johnson',
       email: 'alicejohnson@example.com',
       imageUrl: '"https://i.ibb.co/tzxq3xX/Unknown-4.jpg',
       gpa: 3.2
     },
-    {
+    { campusId: 2,
       firstName: 'Bob',
       lastName: 'Brown',
       email: 'bobbrown@example.com',
@@ -60,7 +60,8 @@ const StudentsSeed = [
 ];
 
 const seed = async () => {
-    await campuses.bulkCreate(CampusesSeed);
-    await students.bulkCreate(StudentsSeed);
+    await db.sync({force: true});
+    await Campuses.bulkCreate(CampusesSeed);
+    await Students.bulkCreate(StudentsSeed);
 }
 seed().then(() => process.exit());
