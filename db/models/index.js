@@ -1,10 +1,9 @@
-const campuses = require("./campuses");
-const students = require("./students");
-//Associsation
-campuses.belongsToMany(students, {through: "StudentsCampuses"});
-students.belongsToMany(campuses, {through: "StudentsCampuses"});
+const Campuses = require("./campuses");
+const Students = require("./students");
 
+Campuses.hasMany(Students);
+Students.belongsTo(Campuses);
 module.exports = {
-    campuses,
-    students
+    Campuses,
+    Students
 };

@@ -1,10 +1,11 @@
 const {DataTypes} = require("sequelize");
 const db = require("../db");
 
-const campuses = db.define("campuses",{
+const Campuses = db.define("campuses",{
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     imageUrl: {
         type: DataTypes.STRING,
@@ -19,4 +20,4 @@ const campuses = db.define("campuses",{
     }
 });
 
-module.exports = campuses;
+module.exports = Campuses;

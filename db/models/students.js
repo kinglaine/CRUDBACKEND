@@ -1,7 +1,7 @@
 const {DataTypes} = require("sequelize");
 const db = require("../db");
 
-const students = db.define("students", {
+const Students = db.define("students", {
     firstName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -14,6 +14,7 @@ const students = db.define("students", {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
+        primaryKey: true,
         validate: {
             isEmail: true
         }
@@ -32,4 +33,4 @@ const students = db.define("students", {
     }
 });
 
-module.exports = students;
+module.exports = Students;
