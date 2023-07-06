@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const {campuses} = require("../db/models");
+const {Campuses} = require("../db/models");
 
 //use json middleware to notiy server that im taking json middleware
 router.use(express.json());
 
 router.get("/", async(req, res, next) =>{
     try {
-        const allCampuses = await campuses.findAll();
+        const allCampuses = await Campuses.findAll();
         // error checking
         allCampuses? res.status(200).json(allCampuses) : res.status(404).send("Campus List Not Found");
     } catch (error) {
