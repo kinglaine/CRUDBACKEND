@@ -18,7 +18,7 @@ router.post("/AddCampus", async(req, res, next) => {
     try {
         const data = req.body;
         console.log("printing data", data);
-        await campuses.create(data);
+        await Campuses.create(data);
         res.status(201).json({ message: 'Post created successfully' });
     } catch (error) {
         next(error);
@@ -28,7 +28,7 @@ router.post("/AddCampus", async(req, res, next) => {
 router.delete("/RemoveCampus/:campusName", async (req, res) => {
     try {
         const routeCampusName = req.params.campusName;
-        await campuses.destroy({
+        await Campuses.destroy({
             where: {
                 name: routeCampusName
             }
@@ -41,7 +41,7 @@ router.delete("/RemoveCampus/:campusName", async (req, res) => {
 router.get('/CampusView/:campusName', async(req, res, next) => {
     try {
         const camusName = req.params.campusName;
-        const campusData = await campuses.findOne({where: {name: camusName}});
+        const campusData = await Campuses.findOne({where: {name: camusName}});
         res.send(campusData);
     } catch (error) {
         next(error);
