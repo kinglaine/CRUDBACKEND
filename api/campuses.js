@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const {Campuses} = require("../db/models");
+const {Students} = require("../db/models");
+const { where } = require("sequelize");
 
 //use json middleware to notiy server that im taking json middleware
 router.use(express.json());
@@ -43,6 +45,32 @@ router.get('/CampusView/:campusName', async(req, res, next) => {
         const camusName = req.params.campusName;
         const campusData = await Campuses.findOne({where: {name: camusName}});
         res.send(campusData);
+    } catch (error) {
+        next(error);
+    }
+})
+
+router.get('/CampusView/:campusName/Students', async(req, res, next) => {
+    try {
+        const campusName = req.params.campusName;
+        console.log("this is the campus name", campusName);
+        const campusId = await Campuses.findOne({where: {name: campusName}});
+        const campusData = await Students.findAll({where: {campusId: campusId.dataValues.id}});
+        res.send(campusData);
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.put('/EditCampus/:campusName', async(req, res, next) => {
+    try {
+        const campusName = req.params.campusName;
+        const data = req.body;
+        console.log("this is the campus name", campusName);
+        let row = await Campuses.findOne({where: {name: campusName}});
+        row.update(data)
+        row.save();
+        res.send({message:"Row Updated to", data: row.dataValues});
     } catch (error) {
         next(error);
     }
